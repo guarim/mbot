@@ -23,6 +23,23 @@
                 },
             });
         </script>
+        <script>
+            AFRAME.registerComponent("navclick", {
+                schema: {
+                     url: {
+                        default: ""
+                         }
+                      },
+             init: function() {
+                 var data = this.data;
+                 var el = this.el;
+             el.addEventListener("click", () => {
+            window.open(data.url, "_blank");
+             });
+            }
+         });
+      </script>
+        
     </head>
 
     <body style="margin: 0; overflow: hidden;">
@@ -70,6 +87,7 @@
                     rotation="-90 0 0"
                     class="clickable"
                     gesture-handler
+                    navclick="url: https://www.google.com/a"    
                 ></a-video>
             </a-marker>
 
