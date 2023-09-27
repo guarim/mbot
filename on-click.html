@@ -12,7 +12,8 @@
 	</script>
     
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script>
+    
+   <script>
         AFRAME.registerComponent("navclick", {
       schema: {
         url: {
@@ -28,6 +29,23 @@
       }
     });
     </script>
+
+     <script>
+        AFRAME.registerComponent("phonecall", {
+      schema: {
+        url: {
+          default: ""
+        }
+      },
+      init: function() {
+        var data = this.data;
+        var el = this.el;
+        el.addEventListener("click", () => {
+           window.location.href = "tel:+33613204040";
+        });
+      }
+    });
+    </script>
 </head>
 <body style="margin : 0px; overflow: hidden;">
     
@@ -36,7 +54,7 @@
         <a-marker type="pattern"  preset="custom" url="assets/marker.patt" cursor="rayOrigin: mouse;">
 
         <a-sphere radius="0.3" src="1.png" position="0 2 0" navclick="url: https://guarim.github.io/mbot/"></a-box>
-        <a-box src="2.png" scale = "0.5 0.5 0.5" position="-2 -1 0" phonetel()</a-box>
+        <a-box src="2.png" scale = "0.5 0.5 0.5" position="-2 -1 0" phonecall</a-box>
         <a-box src="3.png" scale = "0.5 0.5 0.5" position="1 1 0" navclick="url: https://github.com/guarim"></a-box>
         <a-box src="4.png" scale = "0.5 0.5 0.5" position="2 1 0" navclick="window.open('tel:+33613204040');"></a-box>
         <a-box src="5.png" scale = "0.5 0.5 0.5" position="-1 -1 0" navclick="url: https://www.linkedin.com/feed"></a-box>
